@@ -12,8 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using Microsoft.Win32;
+
+//Librerias de NAudio (Corre el proyecto una vez para que se traiga las librerias)
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace Reproductor
 {
@@ -25,6 +28,13 @@ namespace Reproductor
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        void ListarDispositivosSalida()
+        {
+            //Elimina todos los items dentro del comboBox
+            cbDispositivoSalida.Items.Clear();
+            
         }
 
         private void BtnExaminar_Click(object sender, RoutedEventArgs e)
