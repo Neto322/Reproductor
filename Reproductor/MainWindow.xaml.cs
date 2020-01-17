@@ -28,12 +28,19 @@ namespace Reproductor
         public MainWindow()
         {
             InitializeComponent();
+            ListarDispositivosSalida();
         }
 
         void ListarDispositivosSalida()
         {
             //Elimina todos los items dentro del comboBox
             cbDispositivoSalida.Items.Clear();
+            //Checa el nombre de cada dispositivo conectado y los pone en el combo box.
+            for(int i=0; i < WaveOut.DeviceCount; i++)
+            {
+                WaveOutCapabilities capacidades = WaveOut.GetCapabilities(i);
+                cbDispositivoSalida.Items.Add(capacidades.ProductName);
+            }
             
         }
 
