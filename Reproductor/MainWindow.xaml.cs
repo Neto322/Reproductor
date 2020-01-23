@@ -36,6 +36,8 @@ namespace Reproductor
    
         WaveOut output;
 
+        bool dragging;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -47,14 +49,18 @@ namespace Reproductor
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(500);
 
-            timer.Tick += Timer_Tick; ;
+            timer.Tick += Timer_Tick;
+
+             dragging = false;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             lblTiempoActual.Text = reader.CurrentTime.ToString().Substring(0, 8);
-            sldTiempo.Value = reader.CurrentTime.TotalSeconds;
-            
+            if(!dragging)
+            {
+                sldTiempo.Value = reader.CurrentTime.TotalSeconds;
+            }
         }
 
         void ListarDispositivosSalida()
@@ -150,6 +156,16 @@ namespace Reproductor
                 btnDetener.IsEnabled = true;
 
             }
+        }
+
+        private void SldTiempo_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+            dragging = true;
+        }
+
+        private void SldTiempo_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            dragging = false;
         }
     }
 }
