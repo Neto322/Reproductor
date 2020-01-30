@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="248.199" Width="458.41">
+        Title="MainWindow" Height="248.199" Width="512.41">
     <Grid>
         <Button x:Name="btnExaminar" Content="Examinar " HorizontalAlignment="Left" Margin="361,10,0,0" VerticalAlignment="Top" Width="69" Height="23" Click="BtnExaminar_Click"/>
         <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285"/>
@@ -17,6 +17,8 @@
         <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="48,116,0,0" VerticalAlignment="Top" Width="398" Thumb.DragStarted="SldTiempo_DragStarted" Thumb.DragCompleted="SldTiempo_DragCompleted" />
         <Label Content="Elige dispositivo de salida:" HorizontalAlignment="Left" Margin="48,139,0,0" VerticalAlignment="Top" Width="149"/>
         <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top" Width="392"/>
+        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" Margin="467,57,0,0" VerticalAlignment="Top" Maximum="1" Orientation="Vertical" Height="108" SmallChange="0.01" ValueChanged="SldVolumen_ValueChanged"/>
+        <Label Content="Volumen" HorizontalAlignment="Left" Margin="446,31,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
